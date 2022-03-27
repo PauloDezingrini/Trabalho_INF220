@@ -18,13 +18,13 @@
 
         <?php
             include("conecta.php");
-            $selecaoCliente = mysqli_query($conecta, "select * from funcionario");
+            $selecaoCliente = mysqli_query($conecta, "select * from funcionários");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
                     <td><?=$campo["Id_func"]?></td>
-                    <td><?=$campo["Nome_func"]?></td>
+                    <td><?=$campo["Nome"]?></td>
                     <td><?=$campo["Cargo"]?></td>
-                    <td><?=$campo["Trab_hotel"]?></td>
+                    <td><?=$campo["Trabalh_em"]?></td>
                 </tr>
         <?php  } ?>
     </table>

@@ -17,7 +17,7 @@
 
         <?php
             include("conecta.php");
-            $selecaoCliente = mysqli_query($conecta, "select * from hotel");
+            $selecaoCliente = mysqli_query($conecta, "select * from hoteis");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
                     <td><?=$campo["Id_filial"]?></td>

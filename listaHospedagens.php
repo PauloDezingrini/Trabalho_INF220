@@ -13,8 +13,8 @@
             <td><strong>ID DA HOSPEDAGEM</strong></td>
             <td><strong>CHECK IN</strong></td>
             <td><strong>CHECK OUT</strong></td>
-            <td><strong>CONTA DA HOSPEDAGEM</strong></td>
             <td><strong>APARTAMENTO HOSPEDADO</strong></td>
+            <td><strong>HOTEL HOSPEDADO</strong></td>
         </tr>
 
         <?php
@@ -23,10 +23,10 @@
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
                     <td><?=$campo["Id_hosp"]?></td>
-                    <td><?=$campo["Check_in"]?></td>
-                    <td><?=$campo["Check_out"]?></td>
-                    <td><?=$campo["Conta_hosp"]?></td>
-                    <td><?=$campo["Ap_hosp"]?></td>
+                    <td><?=$campo["check_in"]?></td>
+                    <td><?=$campo["check_out"]?></td>
+                    <td><?=$campo["N_Ap"]?></td>
+                    <td><?=$campo["Id_filial"]?></td>
                 </tr>
         <?php  } ?>
     </table>

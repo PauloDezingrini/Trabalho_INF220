@@ -16,6 +16,7 @@
             <td><strong>QUANTIDADE</strong></td>
             <td><strong>VALOR</strong></td>
             <td><strong>REGISTRADO PELA CAMAREIRA</strong></td>
+            <td><strong>Conta</strong></td>
         </tr>
 
         <?php
@@ -25,10 +26,11 @@
                 <tr>
                     <td><?=$campo["Id_consumo"]?></td>
                     <td><?=$campo["Data_consumo"]?></td>
-                    <td><?=$campo["Produt"]?></td>
-                    <td><?=$campo["Quant"]?></td>
-                    <td><?=$campo["Valor"]?></td>
-                    <td><?=$campo["Registrado_por"]?></td>
+                    <td><?=$campo["Produto"]?></td>
+                    <td><?=$campo["Quantidade"]?></td>
+                    <td><?=$campo["Valor_unitário"]?></td>
+                    <td><?=$campo["Anotado_por"]?></td>
+                    <td><?=$campo["Conta"]?></td>
                 </tr>
         <?php  } ?>
     </table>

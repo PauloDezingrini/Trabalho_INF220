@@ -10,21 +10,21 @@
     <h1>Listagem de serviços</h1>
     <table width="90%">
         <tr>
-            <td><strong>ID DO SERVIÇO</strong></td>
             <td><strong>DATA DO SERVIÇO</strong></td>
             <td><strong>APARTAMENTO SOLICITANTE</strong></td>
+            <td><strong>LOCALIZADO NO HOTEL</strong></td>
             <td><strong>FEITO PELA CAMAREIRA</strong></td>
         </tr>
 
         <?php
             include("conecta.php");
-            $selecaoCliente = mysqli_query($conecta, "select * from servicos");
+            $selecaoCliente = mysqli_query($conecta, "select * from serviços");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
-                    <td><?=$campo["Id_serviço"]?></td>
-                    <td><?=$campo["Data_serviço"]?></td>
-                    <td><?=$campo["Num_ap"]?></td>
-                    <td><?=$campo["Camareira"]?></td>
+                    <td><?=$campo["Data"]?></td>
+                    <td><?=$campo["N_Ap"]?></td>
+                    <td><?=$campo["Id_filial"]?></td>
+                    <td><?=$campo["Id_func"]?></td>
                 </tr>
         <?php  } ?>
     </table>

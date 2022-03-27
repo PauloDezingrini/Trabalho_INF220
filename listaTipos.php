@@ -11,7 +11,7 @@
     <table width="90%">
         <tr>
             <td><strong>ID DO TIPO</strong></td>
-            <td><strong>VALOR DO APARTAMENTO</strong></td>
+            <td><strong>DIARIA</strong></td>
             <td><strong>QUANTIDADE DE CAMAS DE CASAL</strong></td>
             <td><strong>QUANTIDADE DE CAMAS DE SOLTEIRO</strong></td>
             <td><strong>ADAPTADO</strong></td>
@@ -25,11 +25,11 @@
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
                     <td><?=$campo["Id_tipo"]?></td>
-                    <td><?=$campo["Valor"]?></td>
-                    <td><?=$campo["Num_C_Casal"]?></td>
-                    <td><?=$campo["Num_C_solteiro"]?></td>
+                    <td><?=$campo["Diaria"]?></td>
+                    <td><?=$campo["N_cama_casal"]?></td>
+                    <td><?=$campo["N_cama_solteiro"]?></td>
                     <td><?=$campo["Adaptado"]?></td>
-                    <td><?=$campo["Tv"]?></td>
+                    <td><?=$campo["TV"]?></td>
                     <td><?=$campo["Frigobar"]?></td>
                 </tr>
         <?php  } ?>

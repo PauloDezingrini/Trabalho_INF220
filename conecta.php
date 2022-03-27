@@ -1,3 +1,3 @@
 <?php
-    $conecta = mysqli_connect("localhost", "root", "", "rede_hoteis");
+    $conecta = mysqli_connect("localhost", "root", "", "hoteis_bom_sono");
 ?>

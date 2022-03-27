@@ -8,7 +8,7 @@
     $cendereco = $_POST["cendereço"];
     $nac = $_POST["cnacionalidade"];
 
-    mysqli_query($conecta, "insert into cliente (Email, Nome_cliente, Tel, Endereço, Nacionalidade, Senha) values ('$cemail', '$cnome', '$ctel', '$cendereco', '$nac', '$csenha')");
+    mysqli_query($conecta, "insert into cliente (Nome,Endereço,Nacionalidade,Telefone,Email,Senha) values (, '$cnome', '$cendereco', '$nac', '$ctel','$cemail', '$csenha')");
 
     header("location:listaClientes.php");
 ?>

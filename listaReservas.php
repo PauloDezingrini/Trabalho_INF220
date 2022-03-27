@@ -17,6 +17,7 @@
             <td><strong>RESERVA CANCELADA</strong></td>
             <td><strong>TIPO DA RESERVA</strong></td>
             <td><strong>RESERVADO NO HOTEL</strong></td>
+            <td><strong>EMAIL DO CLIENTE</strong></td>
         </tr>
 
         <?php
@@ -25,12 +26,13 @@
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
                     <td><?=$campo["Id_reserva"]?></td>
-                    <td><?=$campo["Num_P"]?></td>
+                    <td><?=$campo["N_pessoas"]?></td>
                     <td><?=$campo["Data_entrada"]?></td>
                     <td><?=$campo["Data_saida"]?></td>
-                    <td><?=$campo["Cancel"]?></td>
-                    <td><?=$campo["Tipo_reserva"]?></td>
-                    <td><?=$campo["Reservado_em"]?></td>
+                    <td><?=$campo["Cancelado"]?></td>
+                    <td><?=$campo["Id_tipo"]?></td>
+                    <td><?=$campo["Reservado_onde"]?></td>
+                    <td><?=$campo["Email_cliente"]?></td>
                 </tr>
         <?php  } ?>
     </table>

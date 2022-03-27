@@ -15,9 +15,6 @@
             <td><strong>TELEFONE DO CLIENTE</strong></td>
             <td><strong>ENDEREÇO DO CLIENTE</strong></td>
             <td><strong>NACIONALIDADE DO CLIENTE</strong></td>
-            <td><strong>SENHA DO CLIENTE</strong></td>
-            <td><strong>CÓDIGO DA HOSPEDAGEM</strong></td>
-            <td><strong>CÓDIGO DA RESERVA</strong></td>
         </tr>
 
         <?php
@@ -25,14 +22,11 @@
             $selecaoCliente = mysqli_query($conecta, "select * from cliente");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
-                    <td><?=$campo["Nome_cliente"]?></td>
+                    <td><?=$campo["Nome"]?></td>
                     <td><?=$campo["Email"]?></td>
-                    <td><?=$campo["Tel"]?></td>
+                    <td><?=$campo["Telefone"]?></td>
                     <td><?=$campo["Endereço"]?></td>
                     <td><?=$campo["Nacionalidade"]?></td>
-                    <td><?=$campo["Senha"]?></td>
-                    <td><?=$campo["Cod_hospedagem"]?></td>
-                    <td><?=$campo["Cod_reserva"]?></td>
                 </tr>
         <?php  } ?>
     </table>

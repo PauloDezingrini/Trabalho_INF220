@@ -14,7 +14,6 @@
             <td><strong>VALOR TOTAL DA CONTA</strong></td>
             <td><strong>VALOR A PAGAR</strong></td>
             <td><strong>FORMA DE PAGAMENTO</strong></td>
-            <td><strong>CONSUMIDO NO FRIGOBAR</strong></td>
         </tr>
 
         <?php
@@ -22,11 +21,10 @@
             $selecaoCliente = mysqli_query($conecta, "select * from conta");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
-                    <td><?=$campo["Id_conta"]?></td>
+                    <td><?=$campo["Id_hosp"]?></td>
                     <td><?=$campo["Valor_total"]?></td>
-                    <td><?=$campo["Valor_restante"]?></td>
-                    <td><?=$campo["Forma_pag"]?></td>
-                    <td><?=$campo["Consumo_frigobar"]?></td>
+                    <td><?=$campo["Valor_restaurante"]?></td>
+                    <td><?=$campo["Forma_pagamento"]?></td>
                 </tr>
         <?php  } ?>
     </table>

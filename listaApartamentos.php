@@ -20,9 +20,9 @@
             $selecaoCliente = mysqli_query($conecta, "select * from apartamentos");
             while($campo = mysqli_fetch_array($selecaoCliente)){ ?>
                 <tr>
-                    <td><?=$campo["Num_ap"]?></td>
-                    <td><?=$campo["P_hotel"]?></td>
-                    <td><?=$campo["Tipo"]?></td>
+                    <td><?=$campo["Num_Ap"]?></td>
+                    <td><?=$campo["Id_filial"]?></td>
+                    <td><?=$campo["Id_tipo"]?></td>
                 </tr>
         <?php  } ?>
     </table>
