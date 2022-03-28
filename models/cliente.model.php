@@ -2,7 +2,7 @@
 
     class Cliente {
         private $nome;
-        private $Endereco;
+        private $endereco;
         private $nac;
         private $tel;
         private $email;
