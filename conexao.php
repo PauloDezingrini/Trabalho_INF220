@@ -13,8 +13,7 @@
                     "$this->user",
                     "$this->pass"
                 );
-
-                print_r('chegou aq');
+                
                 return $conexao;
             } catch (PDOException $e) {
                 echo '<p>'.$e->getMessage().'</p>';

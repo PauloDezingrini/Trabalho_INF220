@@ -20,8 +20,11 @@ class HotelService {
     }
 
     public function recuperar(){
-
-    }
+        $query = 'select Id_filial, Cidade, Estado from hoteis';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }   
 
     public function atualizar(){
 

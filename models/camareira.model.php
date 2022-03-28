@@ -4,7 +4,6 @@
         private $id_func;
         private $nome;
 
-        
         public function __get($name){
             return $this->$name;
         }

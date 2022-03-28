@@ -7,7 +7,14 @@
 </head>
 <body>
     
-    <form method="post" action="controller/hotel_controller.php">
+    <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
+            <div>
+                <h3>Inserido com sucesso</h3>
+            </div>
+
+    <?php } ?>
+
+    <form method="post" action="controller/hotel_controller.php?acao=inserir">
         <label for="cidade">Cidade: </label>    
         <input type="text" name="cidade" id="cidade">
 

@@ -1,17 +1,28 @@
 <?php
-    require "../conexao.php";
-    require "../models/hotel.model.php";
-    require "../service/hotel.service.php";
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
+    
+    if($acao == 'inserir'){
 
-    $hotel = new Hotel();
-    $hotel->__set('cidade', $_POST['cidade']);
-    $hotel->__set('estado', $_POST['estado']);
+        require "../conexao.php";
+        require "../models/hotel.model.php";
+        require "../service/hotel.service.php";
 
-    $hotelService = new HotelService($conexao,$hotel);
-    $hotelService->inserir();
+        $hotel = new Hotel();
+        $hotelService = new HotelService($conexao,$hotel);
+        $hotel->__set('cidade', $_POST['cidade']);
+        $hotel->__set('estado', $_POST['estado']);
+    
+        $hotelService->inserir();
+    
+        header('Location: ../form_hoteis.php?inclusao=1');
+    } else if($cao='recuperar'){
 
-    echo'<pre>';
-    print_r($hotel);
-    print_r($conexao);
-    echo'</pre>';
+        require "conexao.php";
+        require "models/hotel.model.php";
+        require "service/hotel.service.php";
+        
+        $hotel = new Hotel();
+        $hotelService = new HotelService($conexao,$hotel);
+        $hoteis = $hotelService->recuperar();
+    }
 ?>
