@@ -12,9 +12,9 @@ class CamareiraService {
     }
 
     public function inserir() {
-        $query = 'insert into camareira(Id_func, Nome)values(:id_func, :Nome)';
+        $query = 'insert into camareira(Id_func, Nome)values(:id, :Nome)';
         $stmt = $this->conexao->prepare($query);
-        $stmt->bindValue(':id_func',$this->camareira->__get('id_func'));
+        $stmt->bindValue(':id',$this->camareira->__get('id'));
         $stmt->bindValue('nome',$this->camareira->__get('nome'));
         $stmt->execute();
     }
@@ -27,7 +27,11 @@ class CamareiraService {
     }
 
     public function atualizar(){
-
+        $query = 'update camareira set Nome = :nome where Id_func = :id';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':nome',$this->hotel->__get('nome'));
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        return $stmt->execute();
     }
 
     public function remover(){

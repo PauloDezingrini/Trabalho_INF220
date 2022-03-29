@@ -27,7 +27,13 @@ class ApartamentoService {
     }
 
     public function atualizar(){
-
+        $query = 'update apartamentos set Id_tipo = :id_tipo, Ocupado = :ocupado where Id_filial = :id_filial and Num_Ap = :num_ap';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_tipo',$this->hotel->__get('id_tipo'));
+        $stmt->bindValue(':id_filial',$this->hotel->__get('id_filial'));
+        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
+        $stmt->bindValue(':ocupado',$this->hotel->__get('ocupado'));
+        return $stmt->execute();
     }
 
     public function remover(){

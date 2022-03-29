@@ -31,7 +31,15 @@ class ConsumoFrigobarService {
     }
 
     public function atualizar(){
-
+        $query = 'update consumo_frigobar set Anotado_por = :registrado, Conta = :conta, Produto = :produto, Quantidade = :quantidade, Valor_unitário = :valor_unit where Id_consumo = :id';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':registrado',$this->hotel->__get('registrado'));
+        $stmt->bindValue(':conta',$this->hotel->__get('conta'));
+        $stmt->bindValue(':produto',$this->hotel->__get('produto'));
+        $stmt->bindValue(':quantidade',$this->hotel->__get('quantidade'));
+        $stmt->bindValue(':valor_unit',$this->hotel->__get('valor_unit'));
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        return $stmt->execute();
     }
 
     public function remover(){

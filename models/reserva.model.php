@@ -7,6 +7,7 @@
         private $data_entrada;
         private $cancelado;
         private $id_hotel;
+        private $id_tipo;
         private $email_cliente;
 
         public function __get($name){

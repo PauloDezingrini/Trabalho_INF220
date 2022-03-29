@@ -30,7 +30,15 @@ class ClienteService {
     }
 
     public function atualizar(){
-
+        $query = 'update cliente set Nome = :nome, Endereço = :endereco, Nacionalidade = :nac, Telefone = :tel, Senha = :senha where Email = $email';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':nome',$this->hotel->__get('nome'));
+        $stmt->bindValue(':endereco',$this->hotel->__get('endereco'));
+        $stmt->bindValue(':nac',$this->hotel->__get('nac'));
+        $stmt->bindValue(':tel',$this->hotel->__get('tel'));
+        $stmt->bindValue(':senha',$this->hotel->__get('senha'));
+        $stmt->bindValue(':email',$this->hotel->__get('email'));
+        return $stmt->execute();
     }
 
     public function remover(){

@@ -28,14 +28,20 @@ class FuncionarioService {
     }
 
     public function recuperar(){
-        $query = 'select Id_func, Nome, Cargo, Trabalha_em from funcionários';
+        $query = 'select Id_func, Nome, Cargo, Trabalh_em from funcionários';
         $stmt = $this->conexao->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){
-
+        $query = 'update funcionários set Nome = :nome, Cargo = :cargo, Trabalh_em = :local_trabalho where Id_func = :id';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':nome',$this->hotel->__get('nome'));
+        $stmt->bindValue(':cargo',$this->hotel->__get('cargo'));
+        $stmt->bindValue(':local_trabalho',$this->hotel->__get('local_trabalho'));
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        return $stmt->execute();
     }
 
     public function remover(){

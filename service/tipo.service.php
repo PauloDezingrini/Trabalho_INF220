@@ -30,10 +30,6 @@ class TipoService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function atualizar(){
-
-    }
-
     public function remover(){
 
     }

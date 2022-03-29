@@ -30,7 +30,12 @@ class HospedagemService {
     }
 
     public function atualizar(){
-
+        $query = 'update hospedagem set N_Ap = :num_ap, Email_cliente = :email_cliente where Id_hosp = :id';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
+        $stmt->bindValue(':email_cliente',$this->hotel->__get('email_cliente'));
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        return $stmt->execute();
     }
 
     public function remover(){

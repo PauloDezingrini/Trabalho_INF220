@@ -27,7 +27,12 @@ class ServicoService{
     }
 
     public function atualizar(){
-
+        $query = 'update serviços set Id_func = :id_func where N_Ap = :num_ap and Data = :data';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_func',$this->hotel->__get('id_func'));
+        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
+        $stmt->bindValue(':data',$this->hotel->__get('data'));
+        return $stmt->execute();
     }
 
     public function remover(){
