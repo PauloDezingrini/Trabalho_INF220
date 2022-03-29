@@ -31,7 +31,10 @@ class TipoService {
     }
 
     public function remover(){
-
+        $query = 'delete from tipo where Id_tipo = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->execute();
     }
 }
 

@@ -42,7 +42,10 @@ class ClienteService {
     }
 
     public function remover(){
-
+        $query = 'delete from cliente where Email = $email';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email',$this->hotel->__get('email'));
+        $stmt->execute();
     }
 }
 

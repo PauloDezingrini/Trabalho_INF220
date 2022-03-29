@@ -38,7 +38,10 @@ class FuncionarioService {
     }
 
     public function remover(){
-
+        $query = 'delete from conta where Id_hosp = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->execute();
     }
 }
 

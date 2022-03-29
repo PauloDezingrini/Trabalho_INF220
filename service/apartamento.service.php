@@ -37,7 +37,11 @@ class ApartamentoService {
     }
 
     public function remover(){
-
+        $query = 'delete from apartamentos where Id_filial = :id_filial and Num_Ap = :num_ap';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_filial',$this->hotel->__get('id_filial'));
+        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
+        $stmt->execute();
     }
 }
 

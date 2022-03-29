@@ -36,7 +36,11 @@ class ServicoService{
     }
 
     public function remover(){
-
+        $query = 'delete from reservas where N_Ap = :num_ap and Data = :data';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
+        $stmt->bindValue(':data',$this->hotel->__get('data'));
+        $stmt->execute();
     }
 }
 

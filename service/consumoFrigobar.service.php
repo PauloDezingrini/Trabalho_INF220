@@ -43,7 +43,10 @@ class ConsumoFrigobarService {
     }
 
     public function remover(){
-
+        $query = 'delete from consumo_frigobar where Id_consumo = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->execute();
     }
 }
 

@@ -45,7 +45,10 @@ class FuncionarioService {
     }
 
     public function remover(){
-
+        $query = 'delete from funcionários where Id_func = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->execute();
     }
 }
 
