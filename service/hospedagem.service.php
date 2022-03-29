@@ -23,7 +23,10 @@ class HospedagemService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_hosp, check_in, check_out, N_Ap, Id_filial, Email_cliente from hospedagem';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

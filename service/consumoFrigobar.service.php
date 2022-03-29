@@ -24,7 +24,10 @@ class ConsumoFrigobarService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_consumo, Anotado_por, Conta, Data_consumo, Produto, Valor_unitário, Quantidade   from consumo_frigobar';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

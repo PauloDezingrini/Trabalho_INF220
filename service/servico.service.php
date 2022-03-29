@@ -20,7 +20,10 @@ class ServicoService{
     }
 
     public function recuperar(){
-
+        $query = 'select Id_func, N_Ap, Data, Id_filial from serviços';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

@@ -24,7 +24,10 @@ class ReservaService{
     }
 
     public function recuperar(){
-
+        $query = 'select Id_reserva, N_pessoas, Data_saida, Data_entrada, Cancelado, Id_tipo, Reservado_onde, Email_cliente from reservas';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

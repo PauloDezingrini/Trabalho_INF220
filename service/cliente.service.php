@@ -23,7 +23,10 @@ class ClienteService {
     }
 
     public function recuperar(){
-
+        $query = 'select Nome, Endereço, Nacionalidade, Telefone, Email from cliente';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

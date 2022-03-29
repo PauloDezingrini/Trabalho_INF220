@@ -20,7 +20,10 @@ class ApartamentoService {
     }
 
     public function recuperar(){
-
+        $query = 'select Num_Ap, Id_filial, Id_tipo, Ocupado from apartamentos';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

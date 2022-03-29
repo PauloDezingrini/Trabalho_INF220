@@ -20,7 +20,10 @@ class CamareiraService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_func, Nome from camareira';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

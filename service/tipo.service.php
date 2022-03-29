@@ -24,7 +24,10 @@ class TipoService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_tipo, N_cama_casal, N_cama_solteiro, TV, Frigobar, Adaptado, Diaria from tipo';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

@@ -28,7 +28,10 @@ class FuncionarioService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_func, Nome, Cargo, Trabalha_em from funcionários';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){

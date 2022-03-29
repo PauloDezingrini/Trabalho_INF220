@@ -21,7 +21,10 @@ class FuncionarioService {
     }
 
     public function recuperar(){
-
+        $query = 'select Id_hosp, Valor_restaurante, Valor_total, Forma_pagamento from conta';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function atualizar(){
