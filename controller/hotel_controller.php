@@ -15,7 +15,7 @@
         $hotelService->inserir();
     
         header('Location: ../form_hoteis.php?inclusao=1');
-    } else if($cao='recuperar'){
+    } else if($acao == 'recuperar'){
 
         require "conexao.php";
         require "models/hotel.model.php";
@@ -24,5 +24,7 @@
         $hotel = new Hotel();
         $hotelService = new HotelService($conexao,$hotel);
         $hoteis = $hotelService->recuperar();
+    } else if($acao == 'atualizar'){
+
     }
 ?>
