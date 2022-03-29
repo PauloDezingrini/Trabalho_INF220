@@ -27,11 +27,19 @@ class HotelService {
     }   
 
     public function atualizar(){
-
+        $query = 'update hoteis set Cidade = :cidade, Estado = :estado where Id_filial = :id';
+        $stmt  = $this->conexao->prepare($query);
+        $stmt->bindValue(':cidade',$this->hotel->__get('cidade'));
+        $stmt->bindValue(':estado',$this->hotel->__get('estado'));
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        return $stmt->execute();
     }
 
     public function remover(){
-
+        $query = 'delete from hoteis where Id_filial = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->execute();
     }
 }
 

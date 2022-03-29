@@ -15,7 +15,7 @@
         function editar(id, txt_estado,txt_cidade) {
 
             let form = document.createElement('form')
-            form.action = '/controller/hotel_controller.php?acao=atualizar'
+            form.action = 'controller/hotel_controller.php?acao=atualizar'
             form.method = 'post'
             
             let inputCidade = document.createElement('input')
@@ -46,7 +46,10 @@
             
             estado.innerHTML = ''
             estado.insertBefore(form, estado[0])
-            alert('Chegou aq')
+        }
+
+        function remover(id){
+            location.href='lista_hoteis.php?acao=remover&id='+id
         }
     </script>
 </head>
@@ -61,6 +64,7 @@
                 <i> <?= $hotel->Estado ?>  </i>
                 <i> <?= $hotel->Cidade ?> </i>
                 <i onclick="editar(<?= $hotel->Id_filial ?>, '<?= $hotel->Estado ?>','<?= $hotel->Cidade ?>')"><img src="images/edit_icon.png" width="12px"></i>
+                <i onclick="remover(<?= $hotel->Id_filial ?>)"><img src="images/trash_icon.png" width="12px"></i>
             </div>  
             <br>
         <?php } ?>
