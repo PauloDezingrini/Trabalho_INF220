@@ -63,8 +63,8 @@
             <div  " id="loc_<?= $hotel->Id_filial ?>">  
                 <i> <?= $hotel->Estado ?>  </i>
                 <i> <?= $hotel->Cidade ?> </i>
-                <i onclick="editar(<?= $hotel->Id_filial ?>, '<?= $hotel->Estado ?>','<?= $hotel->Cidade ?>')"><img src="images/edit_icon.png" width="12px"></i>
-                <i onclick="remover(<?= $hotel->Id_filial ?>)"><img src="images/trash_icon.png" width="12px"></i>
+                <i onclick="editar(<?= $hotel->Id_filial ?>, '<?= $hotel->Estado ?>','<?= $hotel->Cidade ?>')"><img src="img/edit_icon.png" width="12px"></i>
+                <i onclick="remover(<?= $hotel->Id_filial ?>)"><img src="img/trash_icon.png" width="12px"></i>
             </div>  
             <br>
         <?php } ?>

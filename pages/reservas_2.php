@@ -43,7 +43,7 @@
             </section>
 
             <!-- Em action="#" envio de dados .php-->
-            <form action="#" method="post">
+            <form action="../controller/cliente_controller.php?acao=inserir" method="post">
                 <div class="linha">
                     <div class="coluna col12">
                         <label>E-mail</br></label>
