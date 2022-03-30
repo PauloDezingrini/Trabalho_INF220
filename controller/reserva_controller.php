@@ -1,12 +1,11 @@
 <?php
 
-    $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;   
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;  
 
     require "../controller/hotel_controller.php";
-    require "../controller/tipo_controller.php";
     require "../models/reserva.model.php";
     require "../service/reserva.service.php";
-
+    
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;   
     $reserva = new Reserva();
     if($acao=='preparar_reserva'){

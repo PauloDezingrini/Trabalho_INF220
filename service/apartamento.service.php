@@ -26,6 +26,14 @@ class ApartamentoService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorFilial(){
+        $query = 'select Num_Ap, Id_tipo from apartamentos where Id_filial = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->apartamento->__get('id_filial'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update apartamentos set Id_tipo = :id_tipo, Ocupado = :ocupado where Id_filial = :id_filial and Num_Ap = :num_ap';
         $stmt  = $this->conexao->prepare($query);

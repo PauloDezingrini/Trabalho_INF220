@@ -1,6 +1,14 @@
 <?php
     $acao = 'recuperar';
     require "../controller/reserva_controller.php";
+
+    if(!isset($_GET['tipos']))
+        $action = "../controller/tipo_controller.php?acao=buscar_tipos";
+    else{
+        $action = "../controller/reserva_controller.php?acao=preparar_reserva";
+        session_start();
+        $apartamentos = $_SESSION['tipos'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,38 +62,41 @@
             </section>
 
             <!-- Em action="#" envio de dados .php-->
-            <form action="../controller/reserva_controller.php?acao=preparar_reserva" method="post">
+            <form action="<?= $action ?>" method="post">
                 <div class="linha">
-                        <div class="coluna col2">
-                            <label>Cidade</label>
-                            <select name="cidades" id="cidades">
-                                <?php foreach($hoteis as $keys => $hotel) { ?>
-                                    <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
+
+                <div class="coluna col2">
+                    <label>Cidade</label>
+                    <select name="cidades" id="cidades">
+                        <?php foreach($hoteis as $keys => $hotel) { ?>
+                            <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                    
                         
-                        <input type="text" value="<?= $_GET['email']?>" name='email' hidden>
-
-                        <div class="coluna col3">
-                            <label class="guest">Pessoas</label>
-                            <input id="guest" type="number" placeholder="max 4" name="guest" />
-                        </div>
-
-                        <div class="coluna col3">
-                            <label class="checkin">Check-in</label>
-                            <input id="checkin" type="date" name="checkin" />
-                        </div>
-    
-                        <div class="coluna col3">
-                            <label class="checkout">Check-out</label>
-                            <input id="checkout" type="date" name="checkout" />
-                        </div>
-    
-                        <div class="coluna col2">
-                            </br>
-                            <input type="submit" class="button2" value="Buscar"></input>
+                    <input type="text" value="<?= $_GET['email']?>" name='email' hidden>
+        
+                    <div class="coluna col3">
+                        <label class="guest">Pessoas</label>
+                        <input id="guest" type="number" placeholder="max 4" name="guest" />
                     </div>
+
+                    <div class="coluna col3">
+                        <label class="checkin">Check-in</label>
+                        <input id="checkin" type="date" name="checkin" />
+                    </div>
+    
+                    <div class="coluna col3">
+                        <label class="checkout">Check-out</label>
+                        <input id="checkout" type="date" name="checkout" />
+                    </div>
+    
+                    <div class="coluna col2">
+                        </br>
+                        <input type="submit" class="button2" value="Buscar"></input>
+                    </div>
+
                 </div>
 
 
@@ -93,17 +104,21 @@
                     <!-- COMEÇO DA GAMBIARRA -->
                     <div class="coluna col12 center">
                         <label class="sem-marcador sem-padding ">
-
-                        <p>Tipos de apartamentos</p>
-                        <?php foreach($tipos as $keys => $tipo) { ?>
-                            
-                            <input type="radio" name="tipo" id="<?= $tipo->Id_tipo ?>" value="<?= $tipo->Id_tipo ?>">
-                                <?= $tipo->Id_tipo ?> <br>
-                                <i onclick="enviar(<?= $tipo->Id_tipo ?>)"><img src="../img/Ap_2.jfif" alt="Quarto 3" /></i>
-                                <br>
-                            </input>
                         
+                        <?php if(isset($_GET['tipos']) && $_GET['tipos'] == 1) { ?>
+ 
+                            <p>Tipos de apartamentos</p>
+                            <?php foreach($apartamentos as $keys => $apartamento) { ?>
+                                
+                                <input type="radio" name="tipo" id="<?= $apartamento->Id_tipo ?>" value="<?= $apartamento->Id_tipo ?>">
+                                    <?= $apartamento->Id_tipo ?> <br>
+                                    <i onclick="enviar(<?= $apartamento->Id_tipo ?>)"><img src="../img/Ap_2.jfif" alt="Quarto 3" /></i>
+                                    <br>
+                                </input>
+                            
+                            <?php } ?>
                         <?php } ?>
+
                     </div>
                 </div>
             </form>
