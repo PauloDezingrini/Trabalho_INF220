@@ -31,6 +31,14 @@ class ReservaService{
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorFilial(){
+        $query = 'select Data_saida, Data_entrada from reservas where Reservado_onde = :id_hotel';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_hotel',$this->reserva->__get('id_hotel'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update reservas set N_pessoas = :n_pessoas, Data_saida = :data_saida, Data_entrada = :data_entrada, Cancelado = :cancelado, Id_tipo = :id_tipo, Reservado_onde = :id_hotel where Id_reserva = :id';
         $stmt  = $this->conexao->prepare($query);

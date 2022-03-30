@@ -21,6 +21,7 @@
         }
     }
 
+
     if(!isset($conexao)){
         $conectar = new Conexao();
         $conexao = $conectar->conectar();

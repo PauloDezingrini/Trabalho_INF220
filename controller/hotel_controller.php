@@ -2,7 +2,7 @@
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     
-    require "../conexao.php";
+    require_once "../conexao.php";
     require "../models/hotel.model.php";
     require "../service/hotel.service.php";
 

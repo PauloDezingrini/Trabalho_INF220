@@ -3,7 +3,7 @@
     require "../controller/reserva_controller.php";
 
     if(!isset($_GET['tipos']))
-        $action = "../controller/tipo_controller.php?acao=buscar_tipos";
+        $action = "../controller/apartamento_controller.php?acao=buscar_tipos";
     else{
         $action = "../controller/reserva_controller.php?acao=preparar_reserva";
         session_start();
