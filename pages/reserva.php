@@ -1,6 +1,7 @@
 <?php
     $acao = 'recuperar';
     require "../controller/reserva_controller.php";
+    echo $_GET['email'];
 ?>
 
 <!DOCTYPE html>
@@ -54,17 +55,19 @@
             </section>
 
             <!-- Em action="#" envio de dados .php-->
-            <form action="../controller/reserva_controller.php?acao=inserir" method="post">
+            <form action="../controller/reserva_controller.php?acao=reservar" method="post">
                 <div class="linha">
                         <div class="coluna col2">
                             <label>Cidade</label>
                             <select name="cidades" id="cidades">
                                 <?php foreach($hoteis as $keys => $hotel) { ?>
-                                    <option value="<?php $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
+                                    <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
                                 <?php } ?>
                             </select>
                         </div>
-    
+                        
+                        <input type="text" value="<?= $_GET['email']?>" name='email' hidden>
+
                         <div class="coluna col3">
                             <label class="guest">Pessoas</label>
                             <input id="guest" type="number" placeholder="max 4" name="guest" />
@@ -87,7 +90,7 @@
                 </div>
 
 
-                <div class="linha">
+                <div class="linha" >
                     <!-- COMEÇO DA GAMBIARRA -->
                     <div class="coluna col12 center">
                         <ul class="sem-marcador sem-padding ">
