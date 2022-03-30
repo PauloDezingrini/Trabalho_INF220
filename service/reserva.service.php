@@ -31,10 +31,26 @@ class ReservaService{
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorId(){
+        $query = 'select N_pessoas, Data_saida, Data_entrada, Cancelado, Id_tipo, Reservado_onde, Email_cliente from reservas where Id_reserva = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->reserva->__get('id'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function recuperarPorFilial(){
         $query = 'select Id_tipo,Data_saida, Data_entrada from reservas where Reservado_onde = :id_hotel';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':id_hotel',$this->reserva->__get('id_hotel'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function recuperarPorEmail(){
+        $query = 'select Id_reserva from reservas where Email_cliente = :email_cliente';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email_cliente',$this->reserva->__get('email_cliente'));
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }

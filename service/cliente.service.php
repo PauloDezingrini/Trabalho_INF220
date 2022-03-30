@@ -29,6 +29,14 @@ class ClienteService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorEmail(){
+        $query = 'select Nome from cliente where Email = :email';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email',$this->cliente->__get('email'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update cliente set Nome = :nome, Endereço = :endereco, Nacionalidade = :nac, Telefone = :tel, Senha = :senha where Email = $email';
         $stmt  = $this->conexao->prepare($query);

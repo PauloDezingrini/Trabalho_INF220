@@ -22,11 +22,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="../css/style.css" />
     
-        <script>
-            function enviar(id){
-                alert(id)
-            }
-        </script>
 
     </head>
 
@@ -65,14 +60,14 @@
             <form action="<?= $action ?>" method="post">
                 <div class="linha">
 
-                <div class="coluna col2">
-                    <label>Cidade</label>
-                    <select name="cidades" id="cidades">
-                        <?php foreach($hoteis as $keys => $hotel) { ?>
-                            <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
-                        <?php } ?>
-                    </select>
-                </div>
+                    <div class="coluna col2">
+                        <label>Cidade</label>
+                        <select name="cidades" id="cidades">
+                            <?php foreach($hoteis as $keys => $hotel) { ?>
+                                <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                     
                         
                     <input type="text" value="<?= $_GET['email']?>" name='email' hidden>
