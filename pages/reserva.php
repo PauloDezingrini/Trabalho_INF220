@@ -1,5 +1,12 @@
-<!DOCTYPE html>
+<?php
+    $acao = 'recuperar';
+    require "../controller/reserva_controller.php";
+    // echo "<pre>";
+    // print_r($hoteis);
+    // echo "</pre>";
+?>
 
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
@@ -9,6 +16,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="../css/style.css" />
+    
+        <script>
+            function enviar(id){
+                alert(id)
+            }
+        </script>
+
     </head>
 
 
@@ -45,57 +59,50 @@
             <!-- Em action="#" envio de dados .php-->
             <form action="#" method="post">
                 <div class="linha">
-                    <div class="coluna col3">
-                        <label>Guest</label>
-                        <input class="busca" id="guest" type="number" placeholder="max 4" name="guest" />
-                    </div>
+                        <div class="coluna col2">
+                            <label>Cidade</label>
+                            <select name="cidades" id="cidades">
+                                <?php foreach($hoteis as $keys => $hotel) { ?>
+                                    <option value="<?php $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+    
+                        <div class="coluna col3">
+                            <label class="guest">Pessoas</label>
+                            <input id="guest" type="number" placeholder="max 4" name="guest" />
+                        </div>
 
-                    <div class="coluna col3">
-                        <label class="check">Check-in</label>
-                        <input class="busca" id="checkin" type="date" name="checkin" />
-                    </div>
-
-                    <div class="coluna col3">
-                        <label class="check">Check-out</label>
-                        <input class="busca" id="checkout" type="date" name="checkout" />
-                    </div>
-
-                    <div class="coluna col3">
-                        </br>
-                        <a class="button" href="reserva.php">Buscar</a>
+                        <div class="coluna col3">
+                            <label class="checkin">Check-in</label>
+                            <input id="checkin" type="date" name="checkin" />
+                        </div>
+    
+                        <div class="coluna col3">
+                            <label class="checkout">Check-out</label>
+                            <input id="checkout" type="date" name="checkout" />
+                        </div>
+    
+                        <div class="coluna col2">
+                            </br>
+                            <a class="button2" href="reserva.html">Buscar</a>
                     </div>
                 </div>
 
+
                 <div class="linha">
-                    <div class="coluna col6">
+                    <!-- COMEÇO DA GAMBIARRA -->
+                    <div class="coluna col12 center">
                         <ul class="sem-marcador sem-padding ">
 
-                            <li>
-                                <p>Tipo A</p>
-                                <a href="reservas_2.php"><img src="../img/Ap_0.jfif" alt="Quarto 1" /></a>
+                        <?php foreach($tipos as $keys => $tipo) { ?>
+
+                            <li id="<?= $tipo->Id_tipo ?>">
+                                <P> <?= $tipo->Id_tipo ?> </P>
+                                <i onclick="enviar(<?= $tipo->Id_tipo ?>)"><img src="../img/Ap_2.jfif" alt="Quarto 3" /></i>
                             </li>
-                            <li>
-                                <p>Tipo B</p>
-                                <a href="reservas_2.php"><img src="../img/Ap_1.jfif" alt="Quarto 2" /></a>
-                            </li>
-                            <li>
-                                <p>Tipo C</p>
-                                <a href="reservas_2.php"><img src="../img/Ap_2.jfif" alt="Quarto 3" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="coluna col6">
-                        <ul class="sem-marcador sem-padding">
-                            <li>
-                                <p>Tipo D</p>
-                                <a href="reservas_2.php"><img src="../img/Ap_3.jfif" alt="Quarto 4" /></a>
-                            </li>
-                            <li>
-                                <p>Tipo E</p>
-                                <a href="reservas_2.php"><img src="../img/Ap_4.jfif" alt="Quarto 5" /></a>
-                            </li>
-                        </ul>
+                        
+                        <?php } ?>
                     </div>
                 </div>
             </form>

@@ -1,20 +1,18 @@
 <?php
 
-    // if($acao == 'inserir' || $acao == 'atualizar' ){
-    //     require "../conexao.php";
-    //     require "../models/cliente.model.php";
-    //     require "../service/cliente.service.php";
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;   
 
-    // } else if($acao == 'recuperar' || $acao == 'remover') {
-    //     require "conexao.php";
-    //     require "models/cliente.model.php";
-    //     require "service/cliente.service.php";
-    // }
+    if($acao == 'inserir' || $acao == 'atualizar' ){
+        require "../conexao.php";
+        require "../models/cliente.model.php";
+        require "../service/cliente.service.php";
 
+    } else if($acao == 'recuperar' || $acao == 'remover') {
+        require "conexao.php";
+        require "models/cliente.model.php";
+        require "service/cliente.service.php";
+    }
 
-    require "../conexao.php";
-    require "../models/cliente.model.php";
-    require "../service/cliente.service.php";
     $cliente = new Cliente();
 
     if($acao = 'inserir'){

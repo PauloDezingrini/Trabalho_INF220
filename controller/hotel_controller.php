@@ -2,17 +2,9 @@
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     
-
-    if($acao == 'inserir' || $acao == 'atualizar' ){
-        require "../conexao.php";
-        require "../models/hotel.model.php";
-        require "../service/hotel.service.php";
-
-    } else if($acao == 'recuperar' || $acao == 'remover') {
-        require "conexao.php";
-        require "models/hotel.model.php";
-        require "service/hotel.service.php";
-    }
+    require "../conexao.php";
+    require "../models/hotel.model.php";
+    require "../service/hotel.service.php";
 
     $hotel = new Hotel();
     

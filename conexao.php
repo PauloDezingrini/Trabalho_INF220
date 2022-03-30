@@ -21,12 +21,10 @@
         }
     }
 
-    $conectar = new Conexao();
-    $conexao = $conectar->conectar();
-    // $query = 'select * from hoteis';
-    // $retorn = $conexao->query($query); 
-    // $lista = $retorn->fetchAll();
-    // echo '<pre>';
-    // print_r($lista);
-    // echo '</pre>';
+    if(!isset($conexao)){
+        echo "aqui";
+        $conectar = new Conexao();
+        $conexao = $conectar->conectar();
+    }
+
 ?>
