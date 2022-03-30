@@ -8,6 +8,8 @@
     require "../service/hospedagem.service.php";
     require "../models/apartamento.model.php";
     require "../service/apartamento.service.php";
+    require "../models/conta.model.php";
+    require "../service/conta.service.php";
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
@@ -43,10 +45,11 @@
         $_SESSION['nome'] = $nome;
         $_SESSION['infos_reserva'] = $infos;
 
-        header("Location: ../pages/admin.php?email=".$_GET['email']);
+        header("Location: ../pages/admin.php?email=".$_GET['email']."&exibir=1");
     } else if($acao=='fazer_check_in'){
         $hospedagem = new Hospedagem();
         $apartamento = new Apartamento();
+        $conta = new Conta();
 
         $hospedagem->__set('email_cliente',$_POST['email']);
 
@@ -67,17 +70,23 @@
         $apartamento->__set('num_ap',$num_ap);
         $apartamento->__set('ocupado',1);
 
-        
-        echo "<pre>";
-        print_r($tipo);
-        print_r($apart);
-        print_r($_POST);
-        echo "</pre>";
         $apartamentoService->atualizar();
 
         $hospedagem->__set('num_ap',$num_ap);
+        $hospedagem->__set('check_in',$_POST['checkin']);
+        
         $hospedagemService = new HospedagemService($conexao,$hospedagem);
         $hospedagemService->inserir();
+
+        $id = $hospedagemService->recuperarMaiorId();
+        print_r($id);
+        $conta->__set('id',$id[0]->max);
+        $conta->__set('valor_restaurante',0);
+        $conta->__set('valor_total',0);
+        $conta->__set('forma_pagamento','pix');
+
+        $contaService = new ContaService($conexao,$conta);
+        $contaService->inserir();
         header("Location: ../pages/admin.php?check_in=".$num_ap);
     }
 ?>

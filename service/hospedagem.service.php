@@ -29,6 +29,13 @@ class HospedagemService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarMaiorId(){
+        $query = 'select max(Id_hosp) as max from hospedagem';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update hospedagem set N_Ap = :num_ap, Email_cliente = :email_cliente where Id_hosp = :id';
         $stmt  = $this->conexao->prepare($query);

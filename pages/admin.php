@@ -89,7 +89,7 @@
                 </div>
             </form>
 
-            <?php if(isset($infos)) { ?>
+            <?php if(isset($_GET['exibir'])) { ?>
                 <div class="linha">
                     <label class="label">Cliente: </label>
                     <p class="color_text"> <?= $nome[0]->Nome; ?> </p>
@@ -119,9 +119,11 @@
             <div class="linha">
                 <center>
                     <form action="../controller/check_in_controller.php?acao=fazer_check_in" method="POST">
-
                         <?php if(isset($_GET['email'])) { ?>
                             <input type="text" value ="<?= $_GET['email'] ?>" hidden name='email'>
+                            
+                            <label class="checkin">Data: </label>
+                            <input id="checkin" type="date" name="checkin" />
                         <?php } ?>
                         <input type="submit" value="Check-In" class="button">
                     </form>
@@ -137,6 +139,8 @@
             <?php } ?>
             <hr>
         
+
+            <!-- Começo do Check-out -->
             <div class="linha">
             <section>
                 <div class="linha">
@@ -146,7 +150,7 @@
                 </div>
             </section>
 
-            <form action="../controller/check_in_controller.php?acao=buscar_hospedagem" method="POST">
+            <form action="../controller/check_out_controller.php?acao=buscar_hospedagem" method="POST">
 
                 <div class="linha">
                     <label>Email : </label>
