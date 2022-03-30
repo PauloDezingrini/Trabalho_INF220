@@ -26,6 +26,16 @@ class ApartamentoService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarApartamentoPorTipos(){
+        $query = 'select Id_tipo, COUNT(Num_Ap) as quant from apartamentos where Id_filial = :id_filial group by Id_tipo';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_filial',$this->apartamento->__get('id_filial'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    
+
     public function recuperarPorFilial(){
         $query = 'select Num_Ap, Id_tipo from apartamentos where Id_filial = :id';
         $stmt = $this->conexao->prepare($query);

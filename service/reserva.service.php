@@ -32,7 +32,7 @@ class ReservaService{
     }
 
     public function recuperarPorFilial(){
-        $query = 'select Data_saida, Data_entrada from reservas where Reservado_onde = :id_hotel';
+        $query = 'select Id_tipo,Data_saida, Data_entrada from reservas where Reservado_onde = :id_hotel';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':id_hotel',$this->reserva->__get('id_hotel'));
         $stmt->execute();
