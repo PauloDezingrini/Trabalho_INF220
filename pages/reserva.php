@@ -1,7 +1,6 @@
 <?php
     $acao = 'recuperar';
     require "../controller/reserva_controller.php";
-    echo $_GET['email'];
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +54,7 @@
             </section>
 
             <!-- Em action="#" envio de dados .php-->
-            <form action="../controller/reserva_controller.php?acao=reservar" method="post">
+            <form action="../controller/reserva_controller.php?acao=preparar_reserva" method="post">
                 <div class="linha">
                         <div class="coluna col2">
                             <label>Cidade</label>
@@ -93,14 +92,16 @@
                 <div class="linha" >
                     <!-- COMEÇO DA GAMBIARRA -->
                     <div class="coluna col12 center">
-                        <ul class="sem-marcador sem-padding ">
+                        <label class="sem-marcador sem-padding ">
 
+                        <p>Tipos de apartamentos</p>
                         <?php foreach($tipos as $keys => $tipo) { ?>
-
-                            <li id="<?= $tipo->Id_tipo ?>">
-                                <P> <?= $tipo->Id_tipo ?> </P>
+                            
+                            <input type="radio" name="tipo" id="<?= $tipo->Id_tipo ?>" value="<?= $tipo->Id_tipo ?>">
+                                <?= $tipo->Id_tipo ?> <br>
                                 <i onclick="enviar(<?= $tipo->Id_tipo ?>)"><img src="../img/Ap_2.jfif" alt="Quarto 3" /></i>
-                            </li>
+                                <br>
+                            </input>
                         
                         <?php } ?>
                     </div>
