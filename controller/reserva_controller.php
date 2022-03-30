@@ -22,10 +22,14 @@
 
         $reservaService = new ReservaService($conexao,$reserva);
         $reservaService->inserir();
+
+        session_start();
+        $_SESSION['id_filial'] = $_POST['cidades'];
         header("Location: ../index.php");
     } else if(isset($busca) && $busca='reservas=hotel'){
-
-        $reserva->__set('id_hotel',$_POST['cidades']);
+        
+        session_start();
+        $reserva->__set('id_hotel', $_SESSION['id_filial']);
 
         $reservaService = new ReservaService($conexao,$reserva);
         $reservas  = $reservaService->recuperarPorFilial();

@@ -76,7 +76,7 @@
             <form action='<?= '../controller/check_in_controller.php?acao=buscar_infos&email='.$_GET['email']?>' method="POST">
 
                 <div class="linha">
-                    <label >Reservas</label>
+                    <label >Reservas: </label>
                     <select name="reserva" id="cidades">
                         <?php foreach($reservas as $keys => $reserva) { ?>
                             <option value="<?= $reserva->Id_reserva ?>"> <?= $reserva->Id_reserva ?> </option>
@@ -116,7 +116,54 @@
                 </div>
             <?php } ?>
 
+            <div class="linha">
+                <center>
+                    <form action="../controller/check_in_controller.php?acao=fazer_check_in" method="POST">
+
+                        <?php if(isset($_GET['email'])) { ?>
+                            <input type="text" value ="<?= $_GET['email'] ?>" hidden name='email'>
+                        <?php } ?>
+                        <input type="submit" value="Check-In" class="button">
+                    </form>
+                </center>
+            </div>
+
+            <?php if(isset($_GET['check_in'])) { ?>
+                <div class="linha">
+                    <center>
+                        <p class="color_text">Check-In feito com sucesso. Você será hospedado no quarto <?= $_GET['check_in'] ?></p>
+                    </center>
+                </div>
+            <?php } ?>
+            <hr>
+        
+            <div class="linha">
+            <section>
+                <div class="linha">
+                    <div class="coluna col12">
+                        <h1 class="logo">Check Out</h1>   
+                    </div>
+                </div>
+            </section>
+
+            <form action="../controller/check_in_controller.php?acao=buscar_hospedagem" method="POST">
+
+                <div class="linha">
+                    <label>Email : </label>
+                    <input type="text" name="email" id="email"/>
+
+                    <input type="submit" value="Procurar" class="button">
+
+                    <hr>
+                </div>
+
+            </form>
+
+            </div>    
+
         </div>
+
+        
 
         <div class="footer footer_abs">
             <div class="linha">
