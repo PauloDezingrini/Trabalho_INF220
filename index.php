@@ -24,7 +24,7 @@
                         <nav>
                             <ul class="menu inline sem-marcador">
                                 <li><a href="index.php">home</a></li>
-                                <li><a href="pages/reserva.php">reservas</a></li>
+                                <li><a href="pages/reservas_2.php">reservas</a></li>
                                 <li><a href="#">contato</a></li>
                             </ul>
                         </nav>

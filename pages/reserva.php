@@ -1,9 +1,6 @@
 <?php
     $acao = 'recuperar';
     require "../controller/reserva_controller.php";
-    // echo "<pre>";
-    // print_r($hoteis);
-    // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +34,7 @@
                         <nav>
                             <ul class="menu inline sem-marcador">
                                 <li><a href="../index.php">home</a></li>
-                                <li><a href="reserva.php">reservas</a></li>
+                                <li><a href="reservas_2.php">reservas</a></li>
                                 <li><a href="#">contato</a></li>
                             </ul>
                         </nav>
@@ -57,7 +54,7 @@
             </section>
 
             <!-- Em action="#" envio de dados .php-->
-            <form action="#" method="post">
+            <form action="../controller/reserva_controller.php?acao=inserir" method="post">
                 <div class="linha">
                         <div class="coluna col2">
                             <label>Cidade</label>
@@ -85,7 +82,7 @@
     
                         <div class="coluna col2">
                             </br>
-                            <a class="button2" href="reserva.html">Buscar</a>
+                            <input type="submit" class="button2" value="Buscar"></input>
                     </div>
                 </div>
 

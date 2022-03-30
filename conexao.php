@@ -22,7 +22,6 @@
     }
 
     if(!isset($conexao)){
-        echo "aqui";
         $conectar = new Conexao();
         $conexao = $conectar->conectar();
     }

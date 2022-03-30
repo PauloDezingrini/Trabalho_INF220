@@ -2,16 +2,10 @@
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;   
 
-    if($acao == 'inserir' || $acao == 'atualizar' ){
-        require "../conexao.php";
-        require "../models/cliente.model.php";
-        require "../service/cliente.service.php";
+    require "../conexao.php";
+    require "../models/cliente.model.php";
+    require "../service/cliente.service.php";
 
-    } else if($acao == 'recuperar' || $acao == 'remover') {
-        require "conexao.php";
-        require "models/cliente.model.php";
-        require "service/cliente.service.php";
-    }
 
     $cliente = new Cliente();
 
@@ -34,6 +28,8 @@
             $clienteService = new ClienteService($conexao,$cliente);
 
             $clienteService->inserir();
+
+            header("Location: ../pages/reserva.php?email=".$_POST['email']);
         }
 
     }
