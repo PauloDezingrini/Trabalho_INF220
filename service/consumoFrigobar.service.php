@@ -30,6 +30,22 @@ class ConsumoFrigobarService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorConta(){
+        $query = 'select Id_consumo, Anotado_por, Conta, Data_consumo, Produto, Valor_unitário, Quantidade   from consumo_frigobar where Conta = :conta';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':conta',$this->consumoFrigobar->__get('conta'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function recuperarPorProduto(){
+        $query = 'select Id_consumo, Anotado_por, Conta, Data_consumo, Produto, Valor_unitário, Quantidade   from consumo_frigobar where Produto = :produto';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':produto',$this->consumoFrigobar->__get('produto'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update consumo_frigobar set Anotado_por = :registrado, Conta = :conta, Produto = :produto, Quantidade = :quantidade, Valor_unitário = :valor_unit where Id_consumo = :id';
         $stmt  = $this->conexao->prepare($query);
