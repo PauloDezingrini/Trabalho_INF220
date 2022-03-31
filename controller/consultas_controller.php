@@ -100,14 +100,14 @@
 
         header("Location: ../pages/consulta.php?resultado=5");
     } else if($consulta == '6') {
-        $query = 'select H.Cidade, Cl.Nome, (C.Valor_total + C.Valor_restaurante) as Total
+        $query = 'select H.Cidade, Cl.Nome, C.Valor_total
                   from conta as C
                   inner join hospedagem as Ho
                   inner join cliente as Cl
                   inner join hoteis as H
                   on C.Id_hosp = Ho.Id_hosp and Ho.Email_cliente = Cl.Email
                   and Ho.Id_filial = H.Id_filial
-                  order by(C.Valor_total + C.Valor_restaurante) desc limit 5';
+                  order by(C.Valor_total) desc limit 5';
         $stmt = $conexao->prepare($query);
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -120,5 +120,23 @@
         $_SESSION['resultado'] = $resultados;
 
         header("Location: ../pages/consulta.php?resultado=6");
+    } else if($consulta == '7'){
+        $query = 'select SUM(Valor_unitário * Quantidade) as Valor 
+                  from consumo_frigobar
+                  where Data_consumo in ( select Data_consumo
+                                          from consumo_frigobar
+                                          where Data_consumo >= :data1 and Data_consumo <= :data2 )';
+
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':data1',$_POST['data_in']);
+        $stmt->bindValue(':data2',$_POST['data_out']);
+        $stmt->execute();
+
+        $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        session_start();
+        $_SESSION['resultado'] = $resultados;
+
+        header("Location: ../pages/consulta.php?resultado=7&inicio=".$_POST['data_in'].'&fim='.$_POST['data_out']);
     }
 ?>

@@ -127,6 +127,35 @@
 
                 </form>
             </div>
+
+            <hr>
+            <div class="linha">
+                <form action="../controller/consultas_controller.php?consulta=7" method="POST">
+
+                    <div class="linha">
+                        <div class="coluna col6">
+
+                            <label> Pesquisar de: <br></label>
+                            <input class=" default_6" type="date" name="data_in">
+                            
+                        </div>
+
+                        <div class="coluna col12">
+
+                            <label> Até: <br></label>
+                            <input class=" default_6" type="date" name="data_out">
+
+                        </div>
+                    </div>
+
+
+                    <div  class="coluna col 12"> 
+
+                        <input class="default_12" id="test_0" type="submit"  value="Executar Consulta 7"/>
+
+                    </div>
+                </form>
+            </div>
             
             
             
@@ -234,9 +263,26 @@
                     <br>
                 <?php } ?>
             <?php } ?>
+
+            <?php if(isset($_GET['resultado']) && $_GET['resultado'] == '7') { ?>
+                <div class="linha list">
+                    <div class="coluna col3"> Data de Inicio da contagem </div>
+                    <div class="coluna col3"> Data do Fim da contagem </div>
+                    <div class="coluna col3"> Valor </div>
+                </div> 
+
+                <div class="linha list">
+
+                    <div class="coluna col3"> <?= $_GET['inicio'] ?> </div>
+                    <div class="coluna col3"> <?= $_GET['fim'] ?> </div>
+                    <div class="coluna col3"> <?= $resultados[0]->Valor ?> </div>
+
+                </div>
+                    <br>
+            <?php } ?>
         </div>
 
-        <div class="footer">
+        <div class="footer footer_abs">
             <div class="linha">
                 <footer>    
                     <div class="coluna col12">

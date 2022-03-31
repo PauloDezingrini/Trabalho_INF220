@@ -24,7 +24,7 @@
                             <ul class="menu inline sem-marcador">
                                 <li><a href="../index.php">home</a></li>
                                 <li><a href="reservas_2.php">reservas</a></li>
-                                <li><a href="#">contato</a></li>
+                                <li><a href="login.php">Login</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -260,7 +260,7 @@
 
                 <div class="linha">
                     <div class="coluna col12">
-                        <input class="button" type="submit" value="Reservar" />
+                        <input class="button" type="submit" value="Registrar" />
                     </div>
                     <div class="coluna col12">
                         <a class="button" href="login.php"> Fazer Login </a>
