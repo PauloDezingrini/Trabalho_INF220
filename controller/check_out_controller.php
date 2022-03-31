@@ -60,6 +60,7 @@
 
         $valor_total = $diaria * $data_diff2 + $conta->__get('valor_restaurante') + $conta->__get('valor_total');
         $conta->__set('valor_total',$valor_total);
+        $contaService->atualizar();
 
         header("Location: ../pages/admin.php?exibir_total=".$valor_total);
     }

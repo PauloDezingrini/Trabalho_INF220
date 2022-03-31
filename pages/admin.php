@@ -42,8 +42,8 @@
                                 <li><a href="funcionarios.php">Funcionários</a></li>
                                 <li><a href="hospedagem.php">Hospedagem</a></li>
                                 <li><a href="frigobar.php">Frigobar</a></li>
-                                <li><a href="#">Contas</a></li>
                                 <li><a href="#">Serviços</a></li>
+                                <li><a href="consulta.php">Consultas</a></li>
                                 <li><a href="tipos.php">Tipos</a></li>
                             </ul>
                         </nav>

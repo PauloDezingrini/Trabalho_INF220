@@ -2,7 +2,7 @@
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
-    $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : $buscar;  
+    // $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : $buscar;  
 
     
     require_once "../conexao.php";
