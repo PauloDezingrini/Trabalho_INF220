@@ -262,11 +262,14 @@
                     <div class="coluna col12">
                         <input class="button" type="submit" value="Reservar" />
                     </div>
+                    <div class="coluna col12">
+                        <a class="button" href="login.php"> Fazer Login </a>
+                    </div>
                 </div>
             </form>
         </div>
 
-        <div class="footer">
+        <div class="footer footer_abs">
             <div class="linha">
                 <footer>
                     <div class="coluna col12">

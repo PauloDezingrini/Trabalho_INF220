@@ -30,7 +30,7 @@ class ClienteService {
     }
 
     public function recuperarPorEmail(){
-        $query = 'select Nome from cliente where Email = :email';
+        $query = 'select Nome,Senha from cliente where Email = :email';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email',$this->cliente->__get('email'));
         $stmt->execute();
