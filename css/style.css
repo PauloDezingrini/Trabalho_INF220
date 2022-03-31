@@ -234,7 +234,6 @@ input.box {
     border-radius: 3px;
     cursor: pointer;
     margin: 10px -50px;
-    margin: 10px auto;
     display: inline-block;
     border: none
 }
@@ -245,13 +244,12 @@ input.box {
 }
 
 .guest {
-    margin-left: 105px;
+    margin-left: 25px;
 }
 
 #guest {
     padding: 8px 0px 6px 0px;
-    margin-left: 105px;
-    max-width: 150px;
+    margin-left: 25px;
 }
 
 #checkin {
@@ -265,11 +263,73 @@ input.box {
 }
 
 #cidades {
-    max-width: 270px;
     margin-top: 4px;
     padding: 4px 70px;
 }
 
+/*-------------------*/
+
+.default_1 {
+    padding: 5px 0px 5px 0px;
+    width: 60px;
+}
+
+.default_2 {
+    padding: 5px 0px 5px 0px;
+    width: 140px;
+}
+
+.default_3 {
+    padding: 5px 0px 5px 0px;
+    width: 220px;
+}
+
+.default_4 {
+    padding: 5px 0px 5px 0px;
+    width: 300px;
+}
+
+.default_5 {
+    padding: 5px 0px 5px 0px;
+    width: 380px;
+}
+
+.default_6 {
+    padding: 5px 0px 5px 0px;
+    width: 460px;
+}
+
+.default_7 {
+    padding: 5px 0px 5px 0px;
+    width: 540px;
+}
+
+.default_8 {
+    padding: 5px 0px 5px 0px;
+    width: 620px;
+}
+
+.default_9 {
+    padding: 5px 0px 5px 0px;
+    width: 700px;
+}
+
+.default_10 {
+    padding: 5px 0px 5px 0px;
+    width: 780px;
+}
+
+.default_11 {
+    padding: 5px 0px 5px 0px;
+    width: 860px;
+}
+
+.default_12 {
+    padding: 5px 0px 5px 0px;
+    width: 940px;
+}
+
+/* Gambiarras */
 .center {
     width: 940px;
     margin-left: 300px;
@@ -291,6 +351,3 @@ input.box {
     margin: 4px 20px;
     padding: 5px 230px 5px 10px;
 }
-
-
-/*-------------------*/
