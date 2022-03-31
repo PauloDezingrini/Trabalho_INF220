@@ -44,7 +44,7 @@
                                 <li><a href="frigobar.php">Frigobar</a></li>
                                 <li><a href="#">Contas</a></li>
                                 <li><a href="#">Serviços</a></li>
-                                <li><a href="#">Tipos</a></li>
+                                <li><a href="tipos.php">Tipos</a></li>
                             </ul>
                         </nav>
                     </div>
