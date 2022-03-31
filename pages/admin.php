@@ -37,7 +37,7 @@
                             <ul class="menu inline sem-marcador">
                                 <li><a href="../index.php">home</a></li>
                                 <li><a href="#">reservas</a></li>
-                                <li><a href="#">hotéis</a></li>
+                                <li><a href="hoteis.php">hotéis</a></li>
                                 <li><a href="#">clientes</a></li>
                                 <li><a href="#">Funcionários</a></li>
                                 <li><a href="#">Hospedagem</a></li>

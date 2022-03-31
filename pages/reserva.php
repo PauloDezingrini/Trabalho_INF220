@@ -62,9 +62,9 @@
 
                     <div class="coluna col2">
                         <label>Cidade</label>
-                        <select name="cidades" id="cidades">
+                        <select name="cidades" id="" class="default_2">
                             <?php foreach($hoteis as $keys => $hotel) { ?>
-                                <option value="<?= $hotel->Id_filial?>"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
+                                <option value="<?= $hotel->Id_filial?>" class="teste"><?= $hotel->Cidade.' - '.$hotel->Estado?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -74,7 +74,7 @@
         
                     <div class="coluna col3">
                         <label class="guest">Pessoas</label>
-                        <input id="guest" type="number" placeholder="max 4" name="guest" />
+                        <input id="guest" type="number" placeholder="max 4" name="guest" class="default_2"/>
                     </div>
 
                     <div class="coluna col3">

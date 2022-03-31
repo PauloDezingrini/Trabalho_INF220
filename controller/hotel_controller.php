@@ -16,7 +16,7 @@
         $hotelService = new HotelService($conexao,$hotel);
         $hotelService->inserir();
     
-        header('Location: ../form_hoteis.php?inclusao=1');
+        header('Location: ../pages/hoteis.php?inclusao=1');
     } else if($acao == 'recuperar'){
 
         $hotelService = new HotelService($conexao,$hotel);
@@ -31,7 +31,7 @@
         $hotelService = new HotelService($conexao,$hotel);
         
         if($hotelService->atualizar() != 0)
-            header('Location: ../lista_hoteis.php');
+            header('Location: ../pages/hoteis.php');
 
     } else if($acao == 'remover'){
 
@@ -39,6 +39,6 @@
         $hotelService = new HotelService($conexao,$hotel);
         $hotelService->remover();
 
-        header('Location: lista_hoteis.php');
+        header('Location: hoteis.php');
     }
 ?>
