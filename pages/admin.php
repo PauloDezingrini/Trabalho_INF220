@@ -6,6 +6,8 @@
         $infos = $_SESSION['infos_reserva'];
         $nome = $_SESSION['nome'];
     }
+    if(isset($_SESSION['hosp']))
+        $hosps = $_SESSION['hosp']
 ?>
 
 <!DOCTYPE html>
@@ -142,32 +144,59 @@
 
             <!-- Começo do Check-out -->
             <div class="linha">
-            <section>
-                <div class="linha">
-                    <div class="coluna col12">
-                        <h1 class="logo">Check Out</h1>   
+                <section>
+                    <div class="linha">
+                        <div class="coluna col12">
+                            <h1 class="logo">Check Out</h1>   
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <form action="../controller/check_out_controller.php?acao=buscar_hospedagem" method="POST">
+                <form action="../controller/check_out_controller.php?acao=buscar_hospedagem" method="POST">
 
-                <div class="linha">
-                    <label>Email : </label>
-                    <input type="text" name="email" id="email"/>
+                    <div class="linha">
+                        <label>Email : </label>
+                        <input type="text" name="email" id="email"/>
 
-                    <input type="submit" value="Procurar" class="button">
+                        <input type="submit" value="Procurar" class="button">
 
-                    <hr>
-                </div>
+                        <hr>
+                    </div>
 
-            </form>
+                </form>
+
+                <form action='../controller/check_out_controller.php?acao=fazer_check_out' method="POST">
+
+                    <div class="linha">
+                        <label >Hospedagens: </label>
+                        <select name="hospedagem" id="cidades">
+                            <?php foreach($hosps as $keys => $hosp) { ?>
+                                <option value="<?= $hosp->Id_hosp ?>"> <?= $hosp->Id_hosp ?> </option>
+                            <?php } ?> 
+                        </select>
+                        <hr>
+                    </div>
+
+                    <div class="linha">
+                        <center>
+                            <label class="checkin">Data: </label>
+                            <input id="checkin" type="date" name="checkout" />
+                            <input type="submit" value="Check-Out" class="button">
+                        </center>
+                    </div>
+                </form>
+
+                <?php if(isset($_GET['exibir_total'])) { ?>
+                    <div class="linha">
+                        <center>
+                            <p class="color_text">Check-Out feito com sucesso. Valor total foi de R$ <?= $_GET['exibir_total'] ?></p>
+                        </center>
+                    </div>
+                <?php } ?>
 
             </div>    
 
         </div>
-
-        
 
         <div class="footer footer_abs">
             <div class="linha">

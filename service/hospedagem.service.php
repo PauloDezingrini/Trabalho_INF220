@@ -29,6 +29,22 @@ class HospedagemService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorEmail(){
+        $query = 'select Id_hosp from hospedagem where Email_cliente = :email_cliente';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':email_cliente',$this->hospedagem->__get('email_cliente'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function recuperarPorId(){
+        $query = 'select * from hospedagem where Id_hosp = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->hospedagem->__get('id'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function recuperarMaiorId(){
         $query = 'select max(Id_hosp) as max from hospedagem';
         $stmt = $this->conexao->prepare($query);
@@ -37,18 +53,20 @@ class HospedagemService {
     }
 
     public function atualizar(){
-        $query = 'update hospedagem set N_Ap = :num_ap, Email_cliente = :email_cliente where Id_hosp = :id';
+        $query = 'update hospedagem set N_Ap = :num_ap, Email_cliente = :email_cliente, check_in = :check_in, check_out = :check_out where Id_hosp = :id';
         $stmt  = $this->conexao->prepare($query);
-        $stmt->bindValue(':num_ap',$this->hotel->__get('num_ap'));
-        $stmt->bindValue(':email_cliente',$this->hotel->__get('email_cliente'));
-        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->bindValue(':num_ap',$this->hospedagem->__get('num_ap'));
+        $stmt->bindValue(':email_cliente',$this->hospedagem->__get('email_cliente'));
+        $stmt->bindValue(':id',$this->hospedagem->__get('id'));
+        $stmt->bindValue(':check_in',$this->hospedagem->__get('check_in'));
+        $stmt->bindValue(':check_out',$this->hospedagem->__get('check_out'));
         return $stmt->execute();
     }
 
     public function remover(){
         $query = 'delete from hospedagem where Id_hosp = :id';
         $stmt = $this->conexao->prepare($query);
-        $stmt->bindValue(':id',$this->hotel->__get('id'));
+        $stmt->bindValue(':id',$this->hospedagem->__get('id'));
         $stmt->execute();
     }
 }

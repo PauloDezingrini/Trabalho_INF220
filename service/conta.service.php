@@ -27,6 +27,14 @@ class ContaService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorId(){
+        $query = 'select Valor_restaurante, Valor_total from conta where Id_hosp = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->conta->__get('id'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function atualizar(){
         $query = 'update conta set Valor_restaurante = :valor_restaurante, Valor_total = :valor_total, Forma_pagamento = :forma_pagamento where Id_hosp = :id';
         $stmt  = $this->conexao->prepare($query);

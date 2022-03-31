@@ -51,6 +51,24 @@ class ApartamentoService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarDiaria(){
+        $query = 'select Diaria from tipo where Id_tipo = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->apartamento->__get('id_tipo'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function recuperarTipo(){
+        $query = 'select Id_tipo from apartamentos where Id_filial = :id_filial and Num_Ap = :num_ap';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_filial',$this->apartamento->__get('id_filial'));
+        $stmt->bindValue(':num_ap',$this->apartamento->__get('num_ap'));
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+
     public function atualizar(){
         $query = 'update apartamentos set Id_tipo = :id_tipo, Ocupado = :ocupado where Id_filial = :id_filial and Num_Ap = :num_ap';
         $stmt  = $this->conexao->prepare($query);
