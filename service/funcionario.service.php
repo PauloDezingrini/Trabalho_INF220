@@ -33,6 +33,13 @@ class FuncionarioService {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+    public function recuperarPorId(){
+        $query = 'select Id_func, Nome, Cargo, Trabalh_em from funcionários where Id_func = :id';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id',$this->funcionario->__get('id'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 
     public function recuperarPorCargo(){
         $query = 'select Id_func, Nome, Cargo, Trabalh_em from funcionários where Cargo = :cargo';
