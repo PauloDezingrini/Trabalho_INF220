@@ -10,7 +10,7 @@
 
     $cliente = new Cliente();
 
-    if($acao = 'inserir'){
+    if($acao == 'inserir'){
         $campo_vazio = empty($_POST['email']) || empty($_POST['nome']) || empty($_POST['sbnome']) || empty($_POST['senha']) || empty($_POST['cfsenha']) || empty($_POST['paises']) || empty($_POST['tel']) || empty($_POST['end']);
         $senhas_diferentes = ($_POST['senha'] != $_POST['cfsenha']);
         if($campo_vazio)
@@ -33,5 +33,28 @@
             header("Location: ../pages/reserva.php?email=".$_POST['email']);
         }
 
+    } else if($acao == 'recuperar'){
+        
+        $clienteService = new ClienteService($conexao,$cliente);
+        $clientes = $clienteService->recuperar();
+    } else if($acao == 'email') {
+
+        $cliente->__set('email',$_POST['email']);
+        $clienteService = new ClienteService($conexao,$cliente);
+        $clientes = $clienteService->recuperarPorEmail();
+
+        session_start();
+        $_SESSION['email'] = $clientes;
+
+        header("Location: ../pages/clientes.php?buscar=email");
+    } else if($acao == 'nac'){
+        $cliente->__set('nac',$_POST['nac']);
+        $clienteService = new ClienteService($conexao,$cliente);
+        $clientes = $clienteService->recuperarPorNac();
+
+        session_start();
+        $_SESSION['nac'] = $clientes;
+
+        header("Location: ../pages/clientes.php?buscar=nac");   
     }
 ?>

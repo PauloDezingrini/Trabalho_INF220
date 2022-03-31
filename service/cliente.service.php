@@ -30,9 +30,17 @@ class ClienteService {
     }
 
     public function recuperarPorEmail(){
-        $query = 'select Nome,Senha from cliente where Email = :email';
+        $query = 'select * from cliente where Email = :email';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email',$this->cliente->__get('email'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+    
+    public function recuperarPorNac(){
+        $query = 'select * from cliente where Nacionalidade = :nac';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':nac',$this->cliente->__get('nac'));
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }

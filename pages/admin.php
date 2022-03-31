@@ -38,7 +38,7 @@
                                 <li><a href="../index.php">home</a></li>
                                 <li><a href="reservas_adm.php">reservas</a></li>
                                 <li><a href="hoteis.php">hotéis</a></li>
-                                <li><a href="#">clientes</a></li>
+                                <li><a href="clientes.php">clientes</a></li>
                                 <li><a href="#">Funcionários</a></li>
                                 <li><a href="#">Hospedagem</a></li>
                                 <li><a href="#">Frigobar</a></li>
