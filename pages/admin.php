@@ -36,7 +36,7 @@
                         <nav>
                             <ul class="menu inline sem-marcador">
                                 <li><a href="../index.php">home</a></li>
-                                <li><a href="#">reservas</a></li>
+                                <li><a href="reservas_adm.php">reservas</a></li>
                                 <li><a href="hoteis.php">hotéis</a></li>
                                 <li><a href="#">clientes</a></li>
                                 <li><a href="#">Funcionários</a></li>

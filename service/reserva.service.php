@@ -40,7 +40,7 @@ class ReservaService{
     }
 
     public function recuperarPorFilial(){
-        $query = 'select Id_tipo,Data_saida, Data_entrada from reservas where Reservado_onde = :id_hotel';
+        $query = 'select * from reservas where Reservado_onde = :id_hotel';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':id_hotel',$this->reserva->__get('id_hotel'));
         $stmt->execute();
@@ -48,9 +48,16 @@ class ReservaService{
     }
 
     public function recuperarPorEmail(){
-        $query = 'select Id_reserva from reservas where Email_cliente = :email_cliente';
+        $query = 'select * from reservas where Email_cliente = :email_cliente';
         $stmt = $this->conexao->prepare($query);
         $stmt->bindValue(':email_cliente',$this->reserva->__get('email_cliente'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function recuperarPorTipo(){
+        $query = 'select * from reservas where Id_tipo = :id_tipo';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_tipo',$this->reserva->__get('id_tipo'));
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }

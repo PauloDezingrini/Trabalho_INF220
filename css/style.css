@@ -362,8 +362,8 @@ input.box {
     padding: 5px 230px 5px 10px;
 }
 
-.list {
-    font-size: 1.2em;
+.inline {
+    display: inline;
 }
 
 .img_1 {
@@ -373,12 +373,11 @@ input.box {
 }
 
 .teste {
-    font-size: 0.8em;
-    margin-left: 0px;
+    margin-left: 35px;
 }
 
 .list {
-    width: 920px;
+    font-size: 0.9em;
 }
 
 .button3 {
@@ -390,4 +389,8 @@ input.box {
     margin-left: 4px;
     display: inline-block;
     border: none;
+}
+
+.margin_top {
+    margin-top: 21px;
 }
