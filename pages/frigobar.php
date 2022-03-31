@@ -61,6 +61,80 @@
             <section>
                 <div class="linha">
                     <div class="coluna col12">
+                        <h1 class="logo">Cadastro de consumos</h1>   
+                    </div>
+                </div>
+            </section>
+
+            <!-- Em action="#" envio de dados .php-->
+
+            <form action="../controller/frigobar_controller.php?acao=cadastro" method="post">
+        
+                <div class="linha">
+                    <div class="coluna col4">
+                        <label>Data</br></label>
+                        <input class="default_4" id="test_0" type="date" name="data" />
+                    </div>
+
+                </div>
+
+                <div class="linha">
+                    <div class="coluna col4">
+                        <label>Registrado por</br></label>
+                        <select class="default_4" id="test_0" type="text" name="registrado" >
+                            <?php foreach($camareiras as $keys => $camareira) { ?>
+                                <option value="<?= $camareira->Id_func?>" class="teste"><?= $camareira->Id_func.'-'.$camareira->Nome ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                </div>
+                
+                <div class="linha">
+                    <div class="coluna col4">
+                        <label">Produto <br></label>
+                        <input type="text" name="produto" id="" class="default_4">
+                    </div>
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="coluna col8">
+                        <label>Quantidade <br></label>
+                        <input type="number" name="quantidade" id="" class="default_4">
+                    </div>
+                </div>
+                <div class="linha">
+
+                    <div class="coluna col8">
+                        <label>Valor <br></label>
+                        <input type="number" name="valor" id="" class="default_4">
+                    </div>
+                </div>
+                <div class="linha">
+
+                    <div class="coluna col8">
+                        <label>Conta</br></label>
+                        <select class="default_4" id="test_0" type="text" name="conta" >
+                            <?php foreach($contas as $keys => $conta) { ?>
+                                <option value="<?= $conta->Id_hosp?>" class="teste"><?= $conta->Id_hosp ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="linha">
+
+                    <div class="coluna col8">
+                        <input class="default_4" id="test_0" type="submit"  value="Cadastrar"/>
+                    </div>
+                </div>
+
+            </form>
+            
+            <section>
+                <div class="linha">
+                    <div class="coluna col12">
                         <h1 class="logo">Lista de consumos</h1>   
                     </div>
                 </div>

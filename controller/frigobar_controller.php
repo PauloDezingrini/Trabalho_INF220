@@ -6,9 +6,12 @@
     require "../service/consumoFrigobar.service.php";
     require "../models/conta.model.php";
     require "../service/conta.service.php";
+    require "../models/funcionario.model.php";
+    require "../service/funcionario.service.php";
 
     $consumo = new ConsumoFrigobar();
     $conta = new Conta();
+    $camareira = new Funcionario();
 
     if($acao == 'recuperar'){
         
@@ -17,6 +20,10 @@
 
         $contaService = new ContaService($conexao,$conta);
         $contas = $contaService->recuperar();
+
+        $camareiraService = new FuncionarioService($conexao,$camareira);
+        $camareiras = $camareiraService->recuperarCamareira();
+
 
     } else if($acao == 'conta'){
         $consumo->__set('conta',$_POST['conta']);
@@ -44,7 +51,7 @@
         session_start();
         $_SESSION['data'] = $consumos;
         header("Location: ../pages/frigobar.php?buscar=data");
-    } else if($acao = 'produto'){
+    } else if($acao == 'produto'){
         $consumo->__set('produto',$_POST['produto']);
         $consumoService = new ConsumoFrigobarService($conexao,$consumo);
         $consumos = $consumoService->recuperarPorProduto();
@@ -52,5 +59,25 @@
         session_start();
         $_SESSION['produto'] = $consumos;
         header("Location: ../pages/frigobar.php?buscar=produto");
+    } else if($acao == 'cadastro') {
+        $consumo->__set('produto',$_POST['produto']);
+        $consumo->__set('quantidade',$_POST['quantidade']);
+        $consumo->__set('data_consumo',$_POST['data']);
+        $consumo->__set('valor_unit',$_POST['valor']);
+        $consumo->__set('conta',$_POST['conta']);
+        $consumo->__set('registrado',$_POST['registrado']);
+
+        $consumoService = new ConsumoFrigobarService($conexao,$consumo);
+        $consumoService->inserir();
+
+        $conta->__set('id',$_POST['conta']);
+        $contaService = new ContaService($conexao,$conta);
+        $cnt = $contaService->recuperarPorId();
+
+        $soma = $_POST['quantidade'] * $_POST['valor'] + $cnt[0]->Valor_total;
+        $conta->__set('valor_total',$soma);
+        $conta->__set('valor_restaurante',$cnt[0]->Valor_restaurante);
+        $contaService->atualizar();
+        header("Location: ../pages/frigobar.php");
     }
 ?>
