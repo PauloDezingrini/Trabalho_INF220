@@ -156,7 +156,7 @@
 
             <div class="linha">
                 <div class="coluna col4">
-                    <input type="submit" class="default_4" value="Cadastrar">
+                    <input type="submit" class="default_4" value="Atualizar">
                 </div>
             </div>
 

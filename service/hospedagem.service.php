@@ -29,6 +29,14 @@ class HospedagemService {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function recuperarPorFilial(){
+        $query = 'select Id_hosp, check_in, check_out, N_Ap, Id_filial, Email_cliente from hospedagem where Id_filial = :id_filial';
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_filial',$this->hospedagem->__get('id_filial'));
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function recuperarPorEmail(){
         $query = 'select Id_hosp from hospedagem where Email_cliente = :email_cliente';
         $stmt = $this->conexao->prepare($query);

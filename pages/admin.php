@@ -40,7 +40,7 @@
                                 <li><a href="hoteis.php">hotéis</a></li>
                                 <li><a href="clientes.php">clientes</a></li>
                                 <li><a href="funcionarios.php">Funcionários</a></li>
-                                <li><a href="#">Hospedagem</a></li>
+                                <li><a href="hospedagem.php">Hospedagem</a></li>
                                 <li><a href="#">Frigobar</a></li>
                                 <li><a href="#">Contas</a></li>
                                 <li><a href="#">Serviços</a></li>
