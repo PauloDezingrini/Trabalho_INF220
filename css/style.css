@@ -391,6 +391,22 @@ input.box {
     border: none;
 }
 
+.color_teste {
+    background-color: rgb(252, 170, 19);
+    font-weight: 400;
+    padding: 5px 230px 5px 10px;
+    border-radius: 3px;
+    margin: 4px 25px;
+    border-color: rgba(0, 0, 0, 0.877);
+    border-style: outset;
+    border-width: 2px;
+    width: 30%;
+}
+
 .margin_top {
     margin-top: 21px;
+}
+
+.alerta_registro {
+    text-align: center;
 }

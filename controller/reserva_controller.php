@@ -27,7 +27,7 @@
 
         session_start();
         $_SESSION['id_filial'] = $_POST['cidades'];
-        header("Location: ../index.php");
+        header("Location: ../index.php?reservado=1");
     } else if(isset($busca) && $busca='reservas=hotel'){
         
         session_start();

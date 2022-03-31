@@ -33,6 +33,22 @@
             </div>
         </div>
 
+        <?php if(isset($_GET['reservado']))  { ?>
+
+            <center>
+
+                <div class="form linha">
+    
+                    <div class="col8 color_teste" >
+                            <h3 class="default_7">Reservado com sucesso</h3>
+                    </div>
+    
+                </div>
+
+            </center>
+
+        <?php } ?>
+
         <div class="footer footer_abs">
             <div class="linha">
                 <footer>
